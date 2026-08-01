@@ -1,0 +1,22 @@
+<section class="section container">
+  <h1>Projects & Events</h1>
+  <p class="lead">We don't have completed projects to show yet — here's what's launching soon.</p>
+
+  <div class="grid grid-2" style="margin-top: 32px;" *ngIf="events.length; else empty">
+    <div class="card" *ngFor="let e of events">
+      <span class="badge" *ngIf="e.isUpcoming">Launching Soon</span>
+      <h3 style="margin-top:12px;">{{ e.title }}</h3>
+      <p>{{ e.description }}</p>
+      <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+        {{ e.eventDate ? (e.eventDate | date:'mediumDate') : 'Date to be announced' }}
+        <span *ngIf="e.location"> &middot; {{ e.location }}</span>
+      </p>
+    </div>
+  </div>
+
+  <ng-template #empty>
+    <div class="card">
+      <p>No upcoming projects listed yet. Check back soon, or follow our social channels for announcements.</p>
+    </div>
+  </ng-template>
+</section>

@@ -1,0 +1,39 @@
+<section class="section container">
+  <h1>Support Us</h1>
+  <p class="lead">
+    Every contribution helps us take our first concrete steps. This form records your interest —
+    connect a real payment gateway (Razorpay, Stripe, PayPal, etc.) before accepting live donations.
+  </p>
+
+  <div class="grid grid-2" style="margin-top: 32px; align-items:start;">
+    <form class="stack" [formGroup]="form" (ngSubmit)="submit()">
+      <div>
+        <label>Full Name</label>
+        <input type="text" formControlName="fullName" placeholder="Jane Doe">
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="jane@example.com">
+      </div>
+      <div>
+        <label>Amount (INR)</label>
+        <input type="number" formControlName="amount" min="1" placeholder="1000">
+      </div>
+      <div>
+        <label>Note (optional)</label>
+        <textarea formControlName="note" placeholder="In memory of, dedicated to, etc."></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid || submitting">
+        {{ submitting ? 'Submitting...' : 'Continue' }}
+      </button>
+      <p class="success-msg" *ngIf="submitted">Thank you for your generosity! Our team will reach out with payment details.</p>
+      <p class="error-msg" *ngIf="failed">Something went wrong. Please try again later.</p>
+    </form>
+
+    <div class="card">
+      <h3>Other Ways to Give</h3>
+      <p>Bank transfer, UPI, and cheque details will be listed here once our donation account is fully set up.</p>
+      <p style="color: var(--color-text-muted); font-size:0.9rem;">A QR code and full payment instructions will appear here in the production version of the site.</p>
+    </div>
+  </div>
+</section>

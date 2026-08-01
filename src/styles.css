@@ -1,0 +1,152 @@
+:root {
+  --color-primary: #8b2635;      /* deep maroon - Deccani/Ikat red, festival silk */
+  --color-primary-dark: #5c1825;
+  --color-accent: #d4a017;       /* turmeric gold - Kalamkari dye tone */
+  --color-terracotta: #c26b3f;   /* earthy terracotta - used sparingly, patterns/details */
+  --color-bg: #faf6ee;           /* warm ivory - Kalamkari cotton base */
+  --color-surface: #fffdf9;
+  --color-text: #2b1f1a;         /* warm near-black */
+  --color-text-muted: #6b5d52;
+  --radius: 14px;
+  --shadow: 0 4px 20px rgba(139, 38, 53, 0.10);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 0.5em; }
+
+/* Ikat-inspired diagonal weave stripe - used as a thin decorative rule at the very
+   top of the page and echoed above the footer, evoking a woven textile border. */
+.regional-border {
+  height: 6px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-primary), var(--color-primary) 8px,
+    var(--color-accent) 8px, var(--color-accent) 16px
+  );
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section { padding: 64px 0; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(139,38,53,0.25); }
+.btn-outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--color-accent);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #3a2606;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+form.stack { display: flex; flex-direction: column; gap: 16px; max-width: 520px; }
+form.stack label { font-weight: 600; font-size: 0.9rem; }
+form.stack input, form.stack textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e0d4c3;
+  font: inherit;
+}
+form.stack textarea { min-height: 120px; resize: vertical; }
+
+.success-msg { color: var(--color-primary); font-weight: 600; }
+.error-msg { color: #b3261e; font-weight: 600; }
+
+/* Page lead paragraph - used across About, Programs, Projects, Gallery, Volunteer,
+   Donate, Contact, News. Standardized to one definition (previously duplicated
+   per-component, with a slight size inconsistency on the About page). */
+.lead { font-size: 1.1rem; color: var(--color-text-muted); max-width: 700px; }
+
+/* Nav (was scoped inside nav.component.ts) */
+.nav { background: var(--color-surface); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 10; display: flex; align-items: center; }
+.nav-inner { display: flex; align-items: center; justify-content: flex-start; padding: 14px 24px; flex-wrap: nowrap; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--color-primary-dark); min-width: 0; flex-shrink: 1; }
+.brand-logo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: var(--color-accent); flex-shrink: 0; }
+.brand-text { font-size: 1.05rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.brand-accent { color: var(--color-accent); }
+.nav-links { display: flex; gap: 18px; flex-wrap: nowrap; flex-shrink: 0; }
+.nav-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 600; font-size: 0.92rem; padding: 6px 2px; border-bottom: 2px solid transparent; }
+.nav-links a.active, .nav-links a:hover { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+.instagram-link { color: var(--color-primary); display: inline-flex; padding: 6px; border-radius: 50%; transition: background 0.15s ease; flex-shrink: 0; margin-left: auto; }
+.instagram-link:hover { background: rgba(139,38,53,0.08); }
+
+/* Footer (was scoped inside footer.component.ts) */
+.footer { background: var(--color-primary-dark); color: #f3e6e2; margin-top: 60px; }
+.footer-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 48px 24px; }
+.footer h3, .footer h4 { color: #fff; }
+.footer a { display: block; color: #ddbdb5; text-decoration: none; margin-bottom: 8px; font-size: 0.92rem; }
+.footer a:hover { color: var(--color-accent); }
+.copyright { text-align: center; padding: 16px; margin: 0; font-size: 0.82rem; color: #c39992; border-top: 1px solid rgba(255,255,255,0.1); }
+
+/* Hero, home page only (was scoped inside home.component.ts) */
+.hero {
+  background-color: var(--color-primary);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.14) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  color: #fff; padding: 80px 0;
+}
+.hero-inner { max-width: 720px; }
+.hero h1 { font-size: 2.4rem; margin-top: 16px; }
+.hero p { font-size: 1.05rem; color: #f5e6df; margin-bottom: 28px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero .btn-outline { color: #fff; border-color: #fff; }
+
+/* Our Team (About page) */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-top: 24px; text-align: center; }
+.team-photo { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; background: var(--color-bg); border: 3px solid var(--color-accent); margin: 0 auto 14px; display: block; }
+.team-name { font-weight: 700; font-size: 1.02rem; margin-bottom: 2px; }
+.team-role { color: var(--color-primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+
+/* Certificates & Registration (About page) - honest placeholders, not mock official documents */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 20px; }
+.cert-card { background: var(--color-surface); border: 1px dashed #d8c3a5; border-radius: var(--radius); padding: 20px; text-align: center; }
+.cert-card .cert-status { display: inline-block; margin-top: 8px; font-size: 0.72rem; font-weight: 700; color: var(--color-text-muted); background: var(--color-bg); padding: 3px 10px; border-radius: 999px; }
+
+/* Videos (Gallery page) */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 20px; }
+.video-card { border-radius: 10px; overflow: hidden; background: #000; }
+.video-card video { width: 100%; aspect-ratio: 16/9; display: block; }

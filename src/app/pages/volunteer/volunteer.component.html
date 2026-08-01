@@ -1,0 +1,32 @@
+<section class="section container">
+  <h1>Become a Volunteer</h1>
+  <p class="lead">We're building our first volunteer team. Tell us a bit about yourself and how you'd like to help.</p>
+
+  <form class="stack" [formGroup]="form" (ngSubmit)="submit()" style="margin-top: 24px;">
+    <div>
+      <label>Full Name</label>
+      <input type="text" formControlName="fullName" placeholder="Jane Doe">
+    </div>
+    <div>
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="jane@example.com">
+    </div>
+    <div>
+      <label>Phone</label>
+      <input type="tel" formControlName="phone" placeholder="+91 98765 43210">
+    </div>
+    <div>
+      <label>Area of Interest</label>
+      <input type="text" formControlName="areaOfInterest" placeholder="Education, Events, Fundraising...">
+    </div>
+    <div>
+      <label>Message (optional)</label>
+      <textarea formControlName="message" placeholder="Tell us why you'd like to volunteer"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid || submitting">
+      {{ submitting ? 'Submitting...' : 'Submit Application' }}
+    </button>
+    <p class="success-msg" *ngIf="submitted">Thank you! We'll be in touch soon.</p>
+    <p class="error-msg" *ngIf="failed">Something went wrong. Please try again later.</p>
+  </form>
+</section>

@@ -1,0 +1,35 @@
+<section class="section container">
+  <h1>Gallery</h1>
+  <p class="lead">We're just getting started, so this gallery will fill up as our first events happen.</p>
+
+  <div class="grid grid-3" style="margin-top: 32px;" *ngIf="images.length; else placeholder">
+    <div class="card" *ngFor="let img of images">
+      <img [src]="img.imageUrl" [alt]="img.caption" style="width:100%; border-radius: 10px; margin-bottom: 12px;">
+      <p>{{ img.caption }}</p>
+    </div>
+  </div>
+
+  <ng-template #placeholder>
+    <div class="card" style="text-align:center; padding: 48px;">
+      <h3>No photos yet</h3>
+      <p>Real event photos will appear here once our first activities begin. Want to be part of them?</p>
+      <a routerLink="/volunteer" class="btn btn-primary">Be Our First Volunteer</a>
+    </div>
+  </ng-template>
+
+  <h2 style="margin-top: 48px;">Videos</h2>
+  <p class="lead">Short clips from our activities will go here.</p>
+  <div class="video-grid" *ngIf="videos.length; else noVideos">
+    <div class="video-card" *ngFor="let v of videos">
+      <video [poster]="v.posterUrl || ''" controls>
+        <source [src]="v.videoUrl" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <ng-template #noVideos>
+    <div class="card" style="text-align:center; padding: 48px;">
+      <h3>No videos yet</h3>
+      <p style="margin-bottom:0;">Clips from our activities will appear here once we have some to share.</p>
+    </div>
+  </ng-template>
+</section>

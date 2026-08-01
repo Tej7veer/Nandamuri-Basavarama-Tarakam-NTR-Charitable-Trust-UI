@@ -1,0 +1,36 @@
+<section class="section container">
+  <h1>Contact Us</h1>
+  <p class="lead">Questions, partnership ideas, or press inquiries — we'd love to hear from you.</p>
+
+  <div class="grid grid-2" style="margin-top: 32px; align-items:start;">
+    <form class="stack" [formGroup]="form" (ngSubmit)="submit()">
+      <div>
+        <label>Full Name</label>
+        <input type="text" formControlName="fullName" placeholder="Jane Doe">
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="jane@example.com">
+      </div>
+      <div>
+        <label>Phone (optional)</label>
+        <input type="tel" formControlName="phone" placeholder="+91 98765 43210">
+      </div>
+      <div>
+        <label>Message</label>
+        <textarea formControlName="message" placeholder="How can we help?"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid || submitting">
+        {{ submitting ? 'Sending...' : 'Send Message' }}
+      </button>
+      <p class="success-msg" *ngIf="submitted">Thanks for reaching out — we'll reply soon.</p>
+      <p class="error-msg" *ngIf="failed">Something went wrong. Please try again later.</p>
+    </form>
+
+    <div class="card">
+      <h3>Find Us</h3>
+      <p>Map and address will appear here once our office location is finalized.</p>
+      <p style="color: var(--color-text-muted); font-size:0.9rem;">Follow us on social media for the latest updates.</p>
+    </div>
+  </div>
+</section>

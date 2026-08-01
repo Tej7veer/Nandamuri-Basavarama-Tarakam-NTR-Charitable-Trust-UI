@@ -1,0 +1,18 @@
+<section class="section container">
+  <h1>Upcoming Programs</h1>
+  <p class="lead">Our programs are still in the planning stage. Here's what we're preparing to launch.</p>
+
+  <div class="grid grid-3" style="margin-top: 32px;" *ngIf="programs.length; else loadingOrEmpty">
+    <div class="card" *ngFor="let p of programs">
+      <span class="badge" *ngIf="!p.isLaunched">Coming Soon</span>
+      <h3 style="margin-top:12px;">{{ p.title }}</h3>
+      <p>{{ p.description }}</p>
+    </div>
+  </div>
+
+  <ng-template #loadingOrEmpty>
+    <p *ngIf="loading">Loading programs&hellip;</p>
+    <p *ngIf="!loading && !error">No programs published yet.</p>
+    <p class="error-msg" *ngIf="error">Could not reach the API. Is the backend running at the configured URL?</p>
+  </ng-template>
+</section>

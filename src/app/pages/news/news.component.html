@@ -1,0 +1,19 @@
+<section class="section container">
+  <h1>News & Updates</h1>
+  <p class="lead">We'll post updates here as our programs and events get underway.</p>
+
+  <div class="grid grid-2" style="margin-top: 24px;" *ngIf="posts.length; else noPosts">
+    <div class="card" *ngFor="let post of posts">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+      <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom:0;">{{ post.publishedAt | date:'mediumDate' }}</p>
+    </div>
+  </div>
+
+  <ng-template #noPosts>
+    <div class="card" style="text-align:center; padding: 48px;">
+      <h3>Nothing published yet</h3>
+      <p style="margin-bottom:0;">Check back soon for our first update, or follow us on social media in the meantime.</p>
+    </div>
+  </ng-template>
+</section>
