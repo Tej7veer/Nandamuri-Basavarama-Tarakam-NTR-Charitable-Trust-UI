@@ -101,18 +101,7 @@ form.stack textarea { min-height: 120px; resize: vertical; }
    per-component, with a slight size inconsistency on the About page). */
 .lead { font-size: 1.1rem; color: var(--color-text-muted); max-width: 700px; }
 
-/* Nav (was scoped inside nav.component.ts) */
-.nav { background: var(--color-surface); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 10; display: flex; align-items: center; }
-.nav-inner { display: flex; align-items: center; justify-content: flex-start; padding: 14px 24px; flex-wrap: nowrap; gap: 12px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--color-primary-dark); min-width: 0; flex-shrink: 1; }
-.brand-logo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: var(--color-accent); flex-shrink: 0; }
-.brand-text { font-size: 1.05rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-.brand-accent { color: var(--color-accent); }
-.nav-links { display: flex; gap: 18px; flex-wrap: nowrap; flex-shrink: 0; }
-.nav-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 600; font-size: 0.92rem; padding: 6px 2px; border-bottom: 2px solid transparent; }
-.nav-links a.active, .nav-links a:hover { color: var(--color-primary); border-bottom-color: var(--color-primary); }
-.instagram-link { color: var(--color-primary); display: inline-flex; padding: 6px; border-radius: 50%; transition: background 0.15s ease; flex-shrink: 0; margin-left: auto; }
-.instagram-link:hover { background: rgba(139,38,53,0.08); }
+
 
 /* Footer (was scoped inside footer.component.ts) */
 .footer { background: var(--color-primary-dark); color: #f3e6e2; margin-top: 60px; }
