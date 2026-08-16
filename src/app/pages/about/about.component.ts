@@ -16,10 +16,10 @@ export class AboutComponent implements OnInit {
   // edit name/role/status directly below. To switch back to the live API once the
   // backend is up, delete this block and uncomment the ngOnInit body below it.
   team: TeamMember[] = [
-    { id: 1, name: 'Trustee Name', role: 'Chairman', photoUrl: 'assets/team/member-1.jpg', displayOrder: 1 },
-    { id: 2, name: 'Trustee Name', role: 'President', photoUrl: 'assets/team/member-2.jpg', displayOrder: 2 },
-    { id: 3, name: 'Trustee Name', role: 'Secretary', photoUrl: 'assets/team/member-3.jpg', displayOrder: 3 },
-    { id: 4, name: 'Trustee Name', role: 'Treasurer', photoUrl: 'assets/team/member-4.jpg', displayOrder: 4 }
+    { id: 1, name: 'Nandamuri Mohan Krishna', role: 'Chairman', photoUrl: 'assets/team/Mohan N.jpeg', displayOrder: 1 },
+    { id: 2, name: 'Nandamuri Mohana Rupa', role: 'President', photoUrl: 'assets/team/Rupa N.jpeg', displayOrder: 2 },
+    { id: 3, name: 'Nandamuri Seema', role: 'Secretary', photoUrl: 'assets/team/Seema N.jpeg', displayOrder: 3 },
+    { id: 4, name: 'Tummala Prasanna Kumar', role: 'Treasurer', photoUrl: 'assets/team/Prasanna T.jpeg', displayOrder: 4 }
   ];
 
   certificates: Certificate[] = [
