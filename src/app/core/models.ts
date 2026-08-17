@@ -69,7 +69,13 @@ export interface VolunteerApplicationPayload {
 
 export interface DonationInquiryPayload {
   fullName: string;
+  mobileNo: string;
   email: string;
+  dob?: string | null;
+  panCardNo?: string | null;
+  state: string;
+  city: string;
+  pinCode: string;
+  address: string;
   amount: number;
-  note?: string;
 }
