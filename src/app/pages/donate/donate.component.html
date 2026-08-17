@@ -1,11 +1,12 @@
-
 <section class="donate-page">
 
   <!-- Page Header -->
   <div class="donate-header">
     <div>
       <span class="section-label">SUPPORT OUR MISSION</span>
+
       <h1>Donate</h1>
+
       <p>
         Your contribution helps us build stronger communities through
         education, healthcare, and welfare initiatives.
@@ -25,21 +26,27 @@
     <div class="donation-card">
 
       <div class="card-heading">
+
         <div class="heading-icon">♥</div>
 
         <div>
           <h2>Donation Details</h2>
           <p>Please provide your details below.</p>
         </div>
+
       </div>
 
 
-      <form>
+      <form
+        [formGroup]="donationForm"
+        (ngSubmit)="submit()"
+        novalidate>
 
         <!-- Row 1 -->
         <div class="form-row">
 
           <div class="form-group">
+
             <label for="name">
               Name <span>*</span>
             </label>
@@ -47,12 +54,22 @@
             <input
               id="name"
               type="text"
+              formControlName="fullName"
               placeholder="Enter your name"
-              required>
+              autocomplete="name">
+
+            <small
+              class="form-error"
+              *ngIf="donationForm.get('fullName')?.touched &&
+                     donationForm.get('fullName')?.invalid">
+              Name is required.
+            </small>
+
           </div>
 
 
           <div class="form-group">
+
             <label for="mobile">
               Mobile No. <span>*</span>
             </label>
@@ -60,8 +77,19 @@
             <input
               id="mobile"
               type="tel"
-              placeholder="Enter mobile number"
-              required>
+              formControlName="mobileNo"
+              placeholder="Enter 10-digit mobile number"
+              maxlength="10"
+              inputmode="numeric"
+              autocomplete="tel">
+
+            <small
+              class="form-error"
+              *ngIf="donationForm.get('mobileNo')?.touched &&
+                     donationForm.get('mobileNo')?.invalid">
+              Enter a valid 10-digit mobile number.
+            </small>
+
           </div>
 
         </div>
@@ -71,6 +99,7 @@
         <div class="form-row">
 
           <div class="form-group">
+
             <label for="email">
               Email <span>*</span>
             </label>
@@ -78,19 +107,32 @@
             <input
               id="email"
               type="email"
+              formControlName="email"
               placeholder="Enter email address"
-              required>
+              autocomplete="email">
+
+            <small
+              class="form-error"
+              *ngIf="donationForm.get('email')?.touched &&
+                     donationForm.get('email')?.invalid">
+              Enter a valid email address.
+            </small>
+
           </div>
 
 
           <div class="form-group">
+
             <label for="dob">
               DOB
             </label>
 
             <input
               id="dob"
-              type="date">
+              type="date"
+              formControlName="dob"
+              autocomplete="bday">
+
           </div>
 
         </div>
@@ -100,6 +142,7 @@
         <div class="form-row">
 
           <div class="form-group">
+
             <label for="pan">
               PAN Card No.
             </label>
@@ -107,12 +150,24 @@
             <input
               id="pan"
               type="text"
+              formControlName="panCardNo"
               placeholder="Enter PAN card number"
-              maxlength="10">
+              maxlength="10"
+              style="text-transform: uppercase"
+              autocomplete="off">
+
+            <small
+              class="form-error"
+              *ngIf="donationForm.get('panCardNo')?.touched &&
+                     donationForm.get('panCardNo')?.invalid">
+              Enter a valid PAN number.
+            </small>
+
           </div>
 
 
           <div class="form-group">
+
             <label for="state">
               State <span>*</span>
             </label>
@@ -120,8 +175,17 @@
             <input
               id="state"
               type="text"
+              formControlName="state"
               placeholder="Enter state"
-              required>
+              autocomplete="address-level1">
+
+            <small
+              class="form-error"
+              *ngIf="donationForm.get('state')?.touched &&
+                     donationForm.get('state')?.invalid">
+              State is required.
+            </small>
+
           </div>
 
         </div>
@@ -131,6 +195,7 @@
         <div class="form-row">
 
           <div class="form-group">
+
             <label for="city">
               City <span>*</span>
             </label>
@@ -138,12 +203,22 @@
             <input
               id="city"
               type="text"
+              formControlName="city"
               placeholder="Enter city"
-              required>
+              autocomplete="address-level2">
+
+            <small
+              class="form-error"
+              *ngIf="donationForm.get('city')?.touched &&
+                     donationForm.get('city')?.invalid">
+              City is required.
+            </small>
+
           </div>
 
 
           <div class="form-group">
+
             <label for="pincode">
               PIN Code <span>*</span>
             </label>
@@ -151,9 +226,19 @@
             <input
               id="pincode"
               type="text"
-              placeholder="Enter PIN code"
+              formControlName="pinCode"
+              placeholder="Enter 6-digit PIN code"
               maxlength="6"
-              required>
+              inputmode="numeric"
+              autocomplete="postal-code">
+
+            <small
+              class="form-error"
+              *ngIf="donationForm.get('pinCode')?.touched &&
+                     donationForm.get('pinCode')?.invalid">
+              Enter a valid 6-digit PIN code.
+            </small>
+
           </div>
 
         </div>
@@ -169,8 +254,16 @@
           <textarea
             id="address"
             rows="3"
+            formControlName="address"
             placeholder="Enter complete address"
-            required></textarea>
+            autocomplete="street-address"></textarea>
+
+          <small
+            class="form-error"
+            *ngIf="donationForm.get('address')?.touched &&
+                   donationForm.get('address')?.invalid">
+            Address is required.
+          </small>
 
         </div>
 
@@ -189,11 +282,21 @@
             <input
               id="amount"
               type="number"
+              formControlName="amount"
               min="1"
+              max="10000000"
+              step="1"
               placeholder="Enter donation amount"
-              required>
+              inputmode="decimal">
 
           </div>
+
+          <small
+            class="form-error"
+            *ngIf="donationForm.get('amount')?.touched &&
+                   donationForm.get('amount')?.invalid">
+            Please enter a valid donation amount.
+          </small>
 
         </div>
 
@@ -203,10 +306,17 @@
 
           <button
             type="submit"
-            class="donate-submit">
+            class="donate-submit"
+            [disabled]="donationForm.invalid || submitting">
 
-            Donate Now
-            <span>→</span>
+            <span *ngIf="!submitting">
+              Donate Now
+              <span>→</span>
+            </span>
+
+            <span *ngIf="submitting">
+              Submitting...
+            </span>
 
           </button>
 
@@ -240,42 +350,57 @@
       <div class="bank-details">
 
         <div class="bank-detail">
+
           <span>Account Name</span>
+
           <strong>
             Nandamuri Basavarama Tarakam NTR Charitable Trust
           </strong>
+
         </div>
 
 
         <div class="bank-detail">
+
           <span>Bank Name</span>
+
           <strong>
             YOUR BANK NAME
           </strong>
+
         </div>
 
 
         <div class="bank-detail">
+
           <span>Account Number</span>
+
           <strong>
             XXXX XXXX XXXX
           </strong>
+
         </div>
 
 
         <div class="bank-detail">
+
           <span>IFSC Code</span>
+
           <strong>
             XXXXX000000
           </strong>
+
         </div>
 
 
         <div class="bank-detail">
+
           <span>Branch</span>
+
           <strong>
             YOUR BRANCH
           </strong>
+
         </div>
 
       </div>
@@ -297,4 +422,3 @@
   </div>
 
 </section>
-
