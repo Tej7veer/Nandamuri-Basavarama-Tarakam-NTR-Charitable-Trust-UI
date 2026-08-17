@@ -1,41 +1,18 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms';
-
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../core/services/api.service';
 
 @Component({
   selector: 'app-donate',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
   templateUrl: './donate.component.html',
-  styleUrl: './donate.component.css'
+  styleUrls: ['./donate.component.css']
 })
 export class DonateComponent {
 
-  private fb = inject(FormBuilder);
-  private api = inject(ApiService);
-
   submitting = false;
-  submitted = false;
-  failed = false;
 
-  form = this.fb.group({
-
-    fullName: [
-      '',
-      [
-        Validators.required,
-        Validators.maxLength(120)
-      ]
-    ],
+  donationForm = this.fb.group({
+    fullName: ['', [Validators.required, Validators.maxLength(120)]],
 
     mobileNo: [
       '',
@@ -53,34 +30,36 @@ export class DonateComponent {
       ]
     ],
 
-    dob: [
-      null
-    ],
+    dob: [''],
 
     panCardNo: [
       '',
       [
-        Validators.pattern(
-          /^[A-Z]{5}[0-9]{4}[A-Z]$/
-        )
+        Validators.pattern(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/)
       ]
     ],
 
     state: [
       '',
-      Validators.required
+      [
+        Validators.required,
+        Validators.maxLength(100)
+      ]
     ],
 
     city: [
       '',
-      Validators.required
+      [
+        Validators.required,
+        Validators.maxLength(100)
+      ]
     ],
 
     pinCode: [
       '',
       [
         Validators.required,
-        Validators.pattern(/^\d{6}$/)
+        Validators.pattern(/^[1-9][0-9]{5}$/)
       ]
     ],
 
@@ -96,68 +75,44 @@ export class DonateComponent {
       null,
       [
         Validators.required,
-        Validators.min(1)
+        Validators.min(1),
+        Validators.max(10000000)
       ]
     ]
-
   });
+
+  constructor(
+    private fb: FormBuilder,
+    private api: ApiService
+  ) {}
 
   submit(): void {
 
-    this.submitted = false;
-    this.failed = false;
-
-    if (this.form.invalid) {
-
-      this.form.markAllAsTouched();
-
+    if (this.donationForm.invalid) {
+      this.donationForm.markAllAsTouched();
       return;
     }
 
     this.submitting = true;
 
-    const value = this.form.getRawValue();
+    const payload = this.donationForm.getRawValue();
 
-    const payload = {
-      fullName: value.fullName!,
-      mobileNo: value.mobileNo!,
-      email: value.email!,
-      dob: value.dob || null,
-      panCardNo: value.panCardNo || null,
-      state: value.state!,
-      city: value.city!,
-      pinCode: value.pinCode!,
-      address: value.address!,
-      amount: Number(value.amount)
-    };
+    this.api.submitDonation(payload).subscribe({
+      next: () => {
+        this.submitting = false;
 
-    this.api
-      .submitDonationInquiry(payload)
-      .subscribe({
+        this.donationForm.reset();
 
-        next: () => {
+        // Show success message
+      },
 
-          this.submitting = false;
+      error: (error) => {
+        this.submitting = false;
 
-          this.submitted = true;
+        console.error('Donation submission failed', error);
 
-          this.form.reset();
-
-        },
-
-        error: (error) => {
-
-          console.error(
-            'Donation submission failed',
-            error
-          );
-
-          this.submitting = false;
-
-          this.failed = true;
-
-        }
-
-      });
+        // Show error message
+      }
+    });
   }
 }
