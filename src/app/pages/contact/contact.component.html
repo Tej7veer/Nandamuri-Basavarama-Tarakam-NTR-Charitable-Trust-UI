@@ -1,56 +1,101 @@
-<section class="section container">
-  <h1>Contact Us</h1>
-  <p class="lead">Questions, partnership ideas, or press inquiries — we'd love to hear from you.</p>
-
-  <div class="grid grid-2" style="margin-top: 32px; align-items:start;">
-    <form class="stack" [formGroup]="form" (ngSubmit)="submit()">
+<section class="contact-page">
+  <div class="container section">
+    <div class="contact-header">
       <div>
-        <label>Full Name</label>
-        <input type="text" formControlName="fullName" placeholder="Jane Doe">
+        <span class="contact-label">GET IN TOUCH</span>
+        <h1>Contact Us</h1>
+        <p class="lead">
+          We welcome your questions, support, partnership ideas, and enquiries.
+          Reach out to the Nandamuri Basavarama Tarakam NTR Charitable Trust.
+        </p>
       </div>
-      <div>
-        <label>Email</label>
-        <input type="email" formControlName="email" placeholder="jane@example.com">
-      </div>
-      <div>
-        <label>Phone (optional)</label>
-        <input type="tel" formControlName="phone" placeholder="+91 98765 43210">
-      </div>
-      <div>
-        <label>Message</label>
-        <textarea formControlName="message" placeholder="How can we help?"></textarea>
-      </div>
-      <button class="btn btn-primary" type="submit" [disabled]="form.invalid || submitting">
-        {{ submitting ? 'Sending...' : 'Send Message' }}
-      </button>
-      <p class="success-msg" *ngIf="submitted">Thanks for reaching out — we'll reply soon.</p>
-      <p class="error-msg" *ngIf="failed">Something went wrong. Please try again later.</p>
-    </form>
+      <div class="header-accent"></div>
+    </div>
 
-    <div class="card">
-      <h3>Contact Details</h3>
-      <p><strong>Email:</strong><br>
-        <a href="mailto:nbtrncharitabletrust&#64;gmail.com">nbtrncharitabletrust&#64;gmail.com</a>
-      </p>
-      <p><strong>Phone:</strong><br>
-        <a href="tel:+918019549236">+91 80195 49236</a>
-      </p>
+    <div class="contact-info-grid">
+      <a class="contact-info-card" href="mailto:nbtrncharitabletrust&#64;gmail.com">
+        <div class="contact-icon">✉</div>
+        <div>
+          <span>Email Us</span>
+          <strong>nbtrncharitabletrust&#64;gmail.com</strong>
+          <small>For general enquiries and support</small>
+        </div>
+      </a>
 
-      <h3 style="margin-top: 28px;">Head Office</h3>
-      <p>
-        Villa No 234, SLV Green Meadows,<br>
-        Ramavarappadu, NTR District,<br>
-        Vijayawada 521108,<br>
-        Andhra Pradesh
-      </p>
+      <a class="contact-info-card" href="tel:+918019549236">
+        <div class="contact-icon">☎</div>
+        <div>
+          <span>Call Us</span>
+          <strong>+91 80195 49236</strong>
+          <small>For direct assistance</small>
+        </div>
+      </a>
+    </div>
 
-      <h3 style="margin-top: 28px;">Branch Office</h3>
-      <p>
-        Villa No 10, Nivee Gardens,<br>
-        Osman Nagar Road, Tellapur,<br>
-        Hyderabad 502032,<br>
-        Telangana
-      </p>
+    <div class="offices-heading">
+      <span class="contact-label">OUR LOCATIONS</span>
+      <h2>Office Addresses</h2>
+    </div>
+
+    <div class="office-grid">
+      <div class="office-card">
+        <div class="office-top">
+          <div class="office-icon">⌖</div>
+          <div>
+            <span class="office-type">HEAD OFFICE</span>
+            <h3>Vijayawada</h3>
+          </div>
+        </div>
+        <p>
+          Villa No 234, SLV Green Meadows,<br>
+          Ramavarappadu, NTR District,<br>
+          Vijayawada 521108,<br>
+          Andhra Pradesh
+        </p>
+      </div>
+
+      <div class="office-card">
+        <div class="office-top">
+          <div class="office-icon">⌖</div>
+          <div>
+            <span class="office-type">BRANCH OFFICE</span>
+            <h3>Hyderabad</h3>
+          </div>
+        </div>
+        <p>
+          Villa No 10, Nivee Gardens,<br>
+          Osman Nagar Road, Tellapur,<br>
+          Hyderabad 502032,<br>
+          Telangana
+        </p>
+      </div>
+    </div>
+
+    <div class="registration-card">
+      <div class="registration-heading">
+        <span class="contact-label">OFFICIAL DETAILS</span>
+        <h2>Trust Registration</h2>
+      </div>
+
+      <div class="registration-grid">
+        <div>
+          <span>Trust PAN</span>
+          <strong>AAFTN3592D</strong>
+        </div>
+        <div>
+          <span>Registration No.</span>
+          <strong>4-615-44-2026</strong>
+        </div>
+        <div>
+          <span>Trust Darpan ID</span>
+          <strong>AP/2026/1160855</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-footer-note">
+      <h3>Nandamuri Basavarama Tarakam NTR Charitable Trust</h3>
+      <p>Service to humanity is service to God.</p>
     </div>
   </div>
 </section>
