@@ -5,11 +5,14 @@
   <div class="grid grid-2" style="margin-top: 32px;">
     <div class="card">
       <h3>Our Story</h3>
-      <p>We are a newly registered charitable trust. We haven't run our first program yet — but we've spent months planning how to make the biggest difference with the resources our community can offer.</p>
+      <p>We are a charitable trust working towards education, healthcare, community welfare, food support, environment, and women's empowerment.</p>
     </div>
     <div class="card">
-      <h3>Our Founders</h3>
-      <p>A small group of volunteers and community organizers came together, motivated by local needs in education, healthcare, and food security.</p>
+      <h3>Our Trustees</h3>
+      <p><strong>Chairman:</strong> Mr Nandamuri Mohana Krishna</p>
+      <p><strong>Managing Trustee:</strong> Ms Nandamuri Mohana Rupa</p>
+      <p><strong>Board Trustee:</strong> Mrs Nandamuri Seemanthini</p>
+      <p><strong>Board Trustee:</strong> Mr Tummala Sri Prasanna Kumar</p>
     </div>
   </div>
 
@@ -20,7 +23,7 @@
   </div>
 
   <h2 style="margin-top: 48px;">Our Team</h2>
-  <p class="lead">The people steering Nandamuri Basavarama Tarakam NTR Charitable Trust in its early days.</p>
+  <p class="lead">The people steering Nandamuri Basavarama Tarakam NTR Charitable Trust.</p>
   <div class="team-grid" *ngIf="team.length; else noTeam">
     <div *ngFor="let member of team">
       <img *ngIf="member.photoUrl; else noPhoto" class="team-photo" [src]="member.photoUrl" [alt]="member.name">
@@ -32,12 +35,19 @@
   <ng-template #noTeam><p>Team details will be added soon.</p></ng-template>
 
   <h2 style="margin-top: 48px;">Certificates & Registration</h2>
-  <p class="lead">We'll display our official documents here as they're issued, rather than claim credentials we don't yet have.</p>
-  <div class="cert-grid" *ngIf="certificates.length; else noCerts">
-    <div class="cert-card" *ngFor="let cert of certificates">
-      <h3 style="margin-bottom:0;">{{ cert.name }}</h3>
-      <span class="cert-status">{{ cert.status }}</span>
+  <p class="lead">Official trust identification and registration details.</p>
+  <div class="grid grid-2" style="margin-top: 24px;">
+    <div class="card">
+      <h3>Trust PAN</h3>
+      <p>AAF TN3592D</p>
+    </div>
+    <div class="card">
+      <h3>Trust Registration No.</h3>
+      <p>4-615-44-2026</p>
+    </div>
+    <div class="card">
+      <h3>Trust Darpan ID</h3>
+      <p>AP/2026/1160855</p>
     </div>
   </div>
-  <ng-template #noCerts><p>Certificate information will be added soon.</p></ng-template>
 </section>
