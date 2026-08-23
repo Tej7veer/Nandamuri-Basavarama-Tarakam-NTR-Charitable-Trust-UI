@@ -1,424 +1,137 @@
 <section class="donate-page">
 
-  <!-- Page Header -->
   <div class="donate-header">
     <div>
       <span class="section-label">SUPPORT OUR MISSION</span>
-
       <h1>Donate</h1>
-
-      <p>
-        Your contribution helps us build stronger communities through
-        education, healthcare, and welfare initiatives.
-      </p>
+      <p>Your contribution helps us build stronger communities through education, healthcare, and welfare initiatives.</p>
     </div>
-
     <div class="header-accent"></div>
   </div>
 
-
   <div class="donate-layout">
 
-    <!-- =====================================================
-         DONATION FORM
-         ===================================================== -->
-
     <div class="donation-card">
-
       <div class="card-heading">
-
         <div class="heading-icon">♥</div>
-
         <div>
           <h2>Donation Details</h2>
           <p>Please provide your details below.</p>
         </div>
-
       </div>
 
-
-      <form
-        [formGroup]="donationForm"
-        (ngSubmit)="submit()"
-        novalidate>
-
-        <!-- Row 1 -->
+      <form [formGroup]="donationForm" (ngSubmit)="submit()" novalidate>
         <div class="form-row">
-
           <div class="form-group">
-
-            <label for="name">
-              Name <span>*</span>
-            </label>
-
-            <input
-              id="name"
-              type="text"
-              formControlName="fullName"
-              placeholder="Enter your name"
-              autocomplete="name">
-
-            <small
-              class="form-error"
-              *ngIf="donationForm.get('fullName')?.touched &&
-                     donationForm.get('fullName')?.invalid">
-              Name is required.
-            </small>
-
+            <label for="name">Name <span>*</span></label>
+            <input id="name" type="text" formControlName="fullName" placeholder="Enter your name" autocomplete="name">
+            <small class="form-error" *ngIf="donationForm.get('fullName')?.touched && donationForm.get('fullName')?.invalid">Name is required.</small>
           </div>
-
-
           <div class="form-group">
-
-            <label for="mobile">
-              Mobile No. <span>*</span>
-            </label>
-
-            <input
-              id="mobile"
-              type="tel"
-              formControlName="mobileNo"
-              placeholder="Enter 10-digit mobile number"
-              maxlength="10"
-              inputmode="numeric"
-              autocomplete="tel">
-
-            <small
-              class="form-error"
-              *ngIf="donationForm.get('mobileNo')?.touched &&
-                     donationForm.get('mobileNo')?.invalid">
-              Enter a valid 10-digit mobile number.
-            </small>
-
+            <label for="mobile">Mobile No. <span>*</span></label>
+            <input id="mobile" type="tel" formControlName="mobileNo" placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" autocomplete="tel">
+            <small class="form-error" *ngIf="donationForm.get('mobileNo')?.touched && donationForm.get('mobileNo')?.invalid">Enter a valid 10-digit mobile number.</small>
           </div>
-
         </div>
 
-
-        <!-- Row 2 -->
         <div class="form-row">
-
           <div class="form-group">
-
-            <label for="email">
-              Email <span>*</span>
-            </label>
-
-            <input
-              id="email"
-              type="email"
-              formControlName="email"
-              placeholder="Enter email address"
-              autocomplete="email">
-
-            <small
-              class="form-error"
-              *ngIf="donationForm.get('email')?.touched &&
-                     donationForm.get('email')?.invalid">
-              Enter a valid email address.
-            </small>
-
+            <label for="email">Email <span>*</span></label>
+            <input id="email" type="email" formControlName="email" placeholder="Enter email address" autocomplete="email">
+            <small class="form-error" *ngIf="donationForm.get('email')?.touched && donationForm.get('email')?.invalid">Enter a valid email address.</small>
           </div>
-
-
           <div class="form-group">
-
-            <label for="dob">
-              DOB
-            </label>
-
-            <input
-              id="dob"
-              type="date"
-              formControlName="dob"
-              autocomplete="bday">
-
+            <label for="dob">DOB</label>
+            <input id="dob" type="date" formControlName="dob" autocomplete="bday">
           </div>
-
         </div>
 
-
-        <!-- Row 3 -->
         <div class="form-row">
-
           <div class="form-group">
-
-            <label for="pan">
-              PAN Card No.
-            </label>
-
-            <input
-              id="pan"
-              type="text"
-              formControlName="panCardNo"
-              placeholder="Enter PAN card number"
-              maxlength="10"
-              style="text-transform: uppercase"
-              autocomplete="off">
-
-            <small
-              class="form-error"
-              *ngIf="donationForm.get('panCardNo')?.touched &&
-                     donationForm.get('panCardNo')?.invalid">
-              Enter a valid PAN number.
-            </small>
-
+            <label for="pan">PAN Card No.</label>
+            <input id="pan" type="text" formControlName="panCardNo" placeholder="Enter PAN card number" maxlength="10" style="text-transform: uppercase" autocomplete="off">
+            <small class="form-error" *ngIf="donationForm.get('panCardNo')?.touched && donationForm.get('panCardNo')?.invalid">Enter a valid PAN number.</small>
           </div>
-
-
           <div class="form-group">
-
-            <label for="state">
-              State <span>*</span>
-            </label>
-
-            <input
-              id="state"
-              type="text"
-              formControlName="state"
-              placeholder="Enter state"
-              autocomplete="address-level1">
-
-            <small
-              class="form-error"
-              *ngIf="donationForm.get('state')?.touched &&
-                     donationForm.get('state')?.invalid">
-              State is required.
-            </small>
-
+            <label for="state">State <span>*</span></label>
+            <input id="state" type="text" formControlName="state" placeholder="Enter state" autocomplete="address-level1">
+            <small class="form-error" *ngIf="donationForm.get('state')?.touched && donationForm.get('state')?.invalid">State is required.</small>
           </div>
-
         </div>
 
-
-        <!-- Row 4 -->
         <div class="form-row">
-
           <div class="form-group">
-
-            <label for="city">
-              City <span>*</span>
-            </label>
-
-            <input
-              id="city"
-              type="text"
-              formControlName="city"
-              placeholder="Enter city"
-              autocomplete="address-level2">
-
-            <small
-              class="form-error"
-              *ngIf="donationForm.get('city')?.touched &&
-                     donationForm.get('city')?.invalid">
-              City is required.
-            </small>
-
+            <label for="city">City <span>*</span></label>
+            <input id="city" type="text" formControlName="city" placeholder="Enter city" autocomplete="address-level2">
+            <small class="form-error" *ngIf="donationForm.get('city')?.touched && donationForm.get('city')?.invalid">City is required.</small>
           </div>
-
-
           <div class="form-group">
-
-            <label for="pincode">
-              PIN Code <span>*</span>
-            </label>
-
-            <input
-              id="pincode"
-              type="text"
-              formControlName="pinCode"
-              placeholder="Enter 6-digit PIN code"
-              maxlength="6"
-              inputmode="numeric"
-              autocomplete="postal-code">
-
-            <small
-              class="form-error"
-              *ngIf="donationForm.get('pinCode')?.touched &&
-                     donationForm.get('pinCode')?.invalid">
-              Enter a valid 6-digit PIN code.
-            </small>
-
+            <label for="pincode">PIN Code <span>*</span></label>
+            <input id="pincode" type="text" formControlName="pinCode" placeholder="Enter 6-digit PIN code" maxlength="6" inputmode="numeric" autocomplete="postal-code">
+            <small class="form-error" *ngIf="donationForm.get('pinCode')?.touched && donationForm.get('pinCode')?.invalid">Enter a valid 6-digit PIN code.</small>
           </div>
-
         </div>
 
-
-        <!-- Address -->
         <div class="form-group full-width">
-
-          <label for="address">
-            Address <span>*</span>
-          </label>
-
-          <textarea
-            id="address"
-            rows="3"
-            formControlName="address"
-            placeholder="Enter complete address"
-            autocomplete="street-address"></textarea>
-
-          <small
-            class="form-error"
-            *ngIf="donationForm.get('address')?.touched &&
-                   donationForm.get('address')?.invalid">
-            Address is required.
-          </small>
-
+          <label for="address">Address <span>*</span></label>
+          <textarea id="address" rows="3" formControlName="address" placeholder="Enter complete address" autocomplete="street-address"></textarea>
+          <small class="form-error" *ngIf="donationForm.get('address')?.touched && donationForm.get('address')?.invalid">Address is required.</small>
         </div>
 
-
-        <!-- Amount -->
         <div class="form-group amount-field full-width">
-
-          <label for="amount">
-            Amount Donated <span>*</span>
-          </label>
-
+          <label for="amount">Amount Donated <span>*</span></label>
           <div class="amount-input">
-
             <span class="currency">₹</span>
-
-            <input
-              id="amount"
-              type="number"
-              formControlName="amount"
-              min="1"
-              max="10000000"
-              step="1"
-              placeholder="Enter donation amount"
-              inputmode="decimal">
-
+            <input id="amount" type="number" formControlName="amount" min="1" max="10000000" step="1" placeholder="Enter donation amount" inputmode="decimal">
           </div>
-
-          <small
-            class="form-error"
-            *ngIf="donationForm.get('amount')?.touched &&
-                   donationForm.get('amount')?.invalid">
-            Please enter a valid donation amount.
-          </small>
-
+          <small class="form-error" *ngIf="donationForm.get('amount')?.touched && donationForm.get('amount')?.invalid">Please enter a valid donation amount.</small>
         </div>
 
-
-        <!-- Submit -->
         <div class="form-actions">
-
-          <button
-            type="submit"
-            class="donate-submit"
-            [disabled]="donationForm.invalid || submitting">
-
-            <span *ngIf="!submitting">
-              Donate Now
-              <span>→</span>
-            </span>
-
-            <span *ngIf="submitting">
-              Submitting...
-            </span>
-
+          <button type="submit" class="donate-submit" [disabled]="donationForm.invalid || submitting">
+            <span *ngIf="!submitting">Donate Now <span>→</span></span>
+            <span *ngIf="submitting">Submitting...</span>
           </button>
-
         </div>
-
       </form>
-
     </div>
 
-
-    <!-- =====================================================
-         BANK DETAILS
-         ===================================================== -->
-
     <aside class="bank-card">
-
       <div class="bank-heading">
-
-        <div class="bank-icon">
-          ₹
-        </div>
-
+        <div class="bank-icon">₹</div>
         <div>
           <h2>Bank Account Details</h2>
           <p>For direct bank transfers</p>
         </div>
-
       </div>
-
 
       <div class="bank-details">
-
         <div class="bank-detail">
-
           <span>Account Name</span>
-
-          <strong>
-            Nandamuri Basavarama Tarakam NTR Charitable Trust
-          </strong>
-
+          <strong>Nandamuri Basavarama Tarakam NTR Charitable Trust</strong>
         </div>
-
-
         <div class="bank-detail">
-
           <span>Bank Name</span>
-
-          <strong>
-            YOUR BANK NAME
-          </strong>
-
+          <strong>STATE BANK OF INDIA</strong>
         </div>
-
-
         <div class="bank-detail">
-
           <span>Account Number</span>
-
-          <strong>
-            XXXX XXXX XXXX
-          </strong>
-
+          <strong>45431626397</strong>
         </div>
-
-
         <div class="bank-detail">
-
-          <span>IFSC Code</span>
-
-          <strong>
-            XXXXX000000
-          </strong>
-
+          <span>RTGS/NEFT IFSC</span>
+          <strong>SBIN0019221</strong>
         </div>
-
-
         <div class="bank-detail">
-
           <span>Branch</span>
-
-          <strong>
-            YOUR BRANCH
-          </strong>
-
+          <strong>Eluru Road, Vijayawada - 5210004</strong>
         </div>
-
       </div>
-
 
       <div class="bank-note">
-
         <span class="note-icon">✓</span>
-
-        <p>
-          After making a bank transfer, please retain your
-          transaction details for donation confirmation.
-        </p>
-
+        <p>After making a bank transfer, please retain your transaction details for donation confirmation.</p>
       </div>
-
     </aside>
-
   </div>
-
 </section>
