@@ -61,7 +61,7 @@
 
 .nav-links a {
   position: relative;
-  color: #fff;
+  color: #f4c85b;
   text-decoration: none;
   font-size: 11px;
   font-weight: 600;
@@ -82,9 +82,8 @@
   transition: transform 0.2s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: #f4c85b;
+.nav-links a:hover {
+  color: #fff;
 }
 
 .nav-links a.active::after,
