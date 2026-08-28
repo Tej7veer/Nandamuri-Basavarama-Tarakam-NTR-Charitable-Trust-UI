@@ -6,7 +6,6 @@
       <h1>Donate</h1>
       <p>Your contribution helps us build stronger communities through education, healthcare, and welfare initiatives.</p>
     </div>
-    <!-- <div class="header-accent"></div> -->
   </div>
 
   <div class="donate-layout">
@@ -17,6 +16,23 @@
         <div>
           <h2>Donation Details</h2>
           <p>Please provide your details below.</p>
+        </div>
+      </div>
+
+      <!-- Submission status -->
+      <div class="submit-status success-status" *ngIf="submitted" role="alert">
+        <span class="status-icon">✓</span>
+        <div>
+          <strong>Donation details submitted successfully.</strong>
+          <p>Thank you for your support. Your donation details have been received by NTR Charitable Trust.</p>
+        </div>
+      </div>
+
+      <div class="submit-status error-status" *ngIf="failed" role="alert">
+        <span class="status-icon">!</span>
+        <div>
+          <strong>Unable to submit donation details.</strong>
+          <p>Please check your connection and try again.</p>
         </div>
       </div>
 
